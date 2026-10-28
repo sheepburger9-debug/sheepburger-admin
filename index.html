@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#D9401F" id="theme-color-meta">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data: blob: https:; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="no-referrer">
+<title>لوحة التحكم — Sheep & Burger</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐑%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css">
+
+
+
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Sheep Admin">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+<script src="js/00-boot-guard.js"></script>
+<a href="#view" class="skip-link">تخطي إلى المحتوى</a>
+
+<!-- ═══ LOGIN ═══ -->
+<div id="login" class="login" role="main">
+  <form id="lform" class="lcard" novalidate>
+    <h1>🐑 Sheep & Burger</h1>
+    <div id="login-step-1">
+      <label for="em">البريد الإلكتروني</label>
+      <input id="em" type="email" autocomplete="username" dir="ltr" required minlength="5">
+      <label for="pw">كلمة المرور</label>
+      <input id="pw" type="password" autocomplete="current-password" dir="ltr" required minlength="6">
+      <div class="lerr" id="lerr" role="alert" aria-live="polite"></div>
+      <button class="btn pri" id="lbtn" type="submit">دخول</button>
+      <button class="btn out" id="forgot" type="button" style="margin-top:8px">نسيت كلمة المرور؟</button>
+      
+    </div>
+    <div id="login-step-2fa" class="hidden">
+      <label for="totp">رمز التحقق الثنائي</label>
+      <input id="totp" type="text" inputmode="numeric" maxlength="6" dir="ltr" placeholder="000000" autocomplete="one-time-code">
+      <div class="lerr" id="lerr2" role="alert" aria-live="polite"></div>
+      <button class="btn pri" id="verify2fa" type="button">تحقق</button>
+      <button class="btn out" id="back-login" type="button" style="margin-top:8px">رجوع</button>
+    </div>
+  </form>
+</div>
+
+<!-- ═══ SHELL ═══ -->
+<div id="shell" class="hidden">
+  <aside id="side" aria-label="القائمة الجانبية">
+    <div class="brand">🐑 Sheep & Burger</div>
+    <nav id="nav"></nav>
+    <div class="foot">
+      <div id="who"></div>
+      <button class="btn out dng" id="logout">تسجيل الخروج</button>
+    </div>
+  </aside>
+  <div id="side-bg"></div>
+  <div class="main">
+    <header class="top">
+      <button id="burger" aria-label="القائمة">☰</button>
+      <h1 id="title"></h1>
+      <span class="rt" id="rt" title="الاتصال اللحظي" aria-live="polite"></span>
+      <button class="btn snd" id="snd" title="تفعيل الصوت" aria-pressed="false">🔊</button>
+      <button class="btn out" id="more-menu" aria-label="المزيد" title="المزيد">⋯</button>
+      <button class="btn out" id="theme" aria-label="الوضع الليلي">🌙</button>
+    </header>
+    <main id="view" tabindex="-1"></main>
+  </div>
+</div>
+<div id="toasts" role="status" aria-live="polite" aria-atomic="false"></div>
+<div id="ov" role="dialog" aria-modal="true"><div class="mod" id="mod" tabindex="-1"></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.min.js'"></script>
+<script src="js/01-config.js"></script>
+<script src="js/02-payments-roles-nav.js"></script>
+<script src="js/03-utils.js"></script>
+<script src="js/04-charts.js"></script>
+<script src="js/05-sound-theme-network.js"></script>
+<script src="js/06-supabase-state.js"></script>
+<script src="js/07-auth.js"></script>
+<script src="js/08-navigation.js"></script>
+<script src="js/09-realtime.js"></script>
+<script src="js/10-kanban.js"></script>
+<script src="js/11-order-actions.js"></script>
+<script src="js/12-views.js"></script>
+<script src="js/13-pagination-table.js"></script>
+<script src="js/14-boot.js"></script>
+
+<noscript><div style="padding:24px;text-align:center;font-family:sans-serif">يجب تفعيل JavaScript لاستخدام لوحة تحكم Sheep &amp; Burger.</div></noscript>
+<script src="js/15-pwa.js"></script>
+</body>
+</html>
